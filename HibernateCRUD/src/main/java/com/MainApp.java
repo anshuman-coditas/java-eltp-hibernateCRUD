@@ -13,9 +13,10 @@ public class MainApp {
         int i,ch = 0;
         Student s;
         List<Student> l;
+        List<Float> l1;
 
         do{
-            System.out.println("1) Insert\n2) Update\n3) Delete\n4) Exit");
+            System.out.println("1) Insert\n2) Update\n3) Delete\n4) Fetch By Restriction\n5) Fetch By Order\n6) Fetch By Projection\n7) Exit");
             ch=Integer.parseInt(br.readLine());
             switch (ch){
                 case 1:
@@ -51,8 +52,35 @@ public class MainApp {
                         System.out.println("Try");
                     break;
                 case 4:
+                    System.out.println("Enter marks ");
+                    float m1=Float.parseFloat(br.readLine());
+                    l=StudentDao.fetchByRes(m1);
+                    for(Student stu:l){
+                        System.out.println(stu);
+                    }
+                    break;
+                case 5:
+                    System.out.println("Enter Order & Property");
+                    String o=br.readLine();
+                    String p=br.readLine();
+                    l=StudentDao.fetchByOrder(o,p);
+                    for(Student stu:l){
+                        System.out.println(stu);
+                    }
+                    break;
+                case 6:
+                    System.out.println("Enter Property");
+                    String p1=br.readLine();
+                    l1=StudentDao.fetchByProject(p1);
+                    for(Float mark:l1){
+                        System.out.println(mark);
+                    }
+                    break;
+
+                case 7:
                     System.exit(0);
                     break;
+
                 default:
                     System.out.println("Enter Valid");
             }

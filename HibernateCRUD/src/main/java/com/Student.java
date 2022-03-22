@@ -21,6 +21,15 @@ public class Student {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "sid=" + sid +
+                ", name='" + name + '\'' +
+                ", marks=" + marks +
+                '}';
+    }
+
     public void setName(String name) {
         this.name = name;
     }
